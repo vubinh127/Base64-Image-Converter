@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Base64 → Image Converter</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+    <button id="themeToggle" class="btn" style="position: fixed; top: 16px; right: 16px; z-index: 999;">
+        🌙 Dark Mode
+    </button>
+
+    <div class="wrap">
+        <div class="panel" id="left">
+            <h1>Paste Base64 or upload .txt</h1>
+            <label for="base64input">Base64 input (data URL or raw base64)</label>
+            <textarea id="base64input"
+                placeholder="Paste base64 string here (can include data:image/png;base64,...)"></textarea>
+
+            <div class="row">
+                <div style="flex:1 1 220px">
+                    <label for="fileInput" class="upload-btn">📁 Chọn file .txt</label>
+                    <input type="file" id="fileInput" accept=".txt" hidden>
+                </div>
+                <div style="flex:0 0 auto;align-self:flex-end">
+                    <button id="convertBtn" class="btn">Convert</button>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:12px">
+                <div style="flex:1 1 220px">
+                    <label>If auto-detect fails, choose MIME type</label>
+                    <select id="forceMime" class="small">
+                        <option value="">Auto detect</option>
+                        <option value="image/png">image/png</option>
+                        <option value="image/jpeg">image/jpeg</option>
+                        <option value="image/gif">image/gif</option>
+                        <option value="image/webp">image/webp</option>
+                    </select>
+                </div>
+                <div style="flex:0 0 auto">
+                    <label>Filename for download</label>
+                    <input id="filename" class="small" type="text" placeholder="image.png" value="image.png">
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:12px">
+                <div class="dropzone" id="dropzone">Drag & drop a .txt file here (or paste into textarea)</div>
+            </div>
+
+            <div class="error hidden" id="error"></div>
+            <footer>Supports data URLs (`data:image/...;base64,...`) or raw base64. Small images recommended.</footer>
+        </div>
+
+        <div class="panel" id="right">
+            <h1>Preview</h1>
+            <div class="preview" id="previewArea">
+                <div class="info">No image yet</div>
+            </div>
+
+            <div class="controls hidden" id="controls">
+                <a id="downloadLink" class="btn secondary" download>Download</a>
+                <button id="openTab" class="btn">Open in new tab</button>
+                <button id="clearBtn" class="btn secondary">Clear</button>
+                <div class="meta" id="meta"></div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap wrap-bottom">
+
+        <div class="panel">
+            <h1>Ảnh → Base64</h1>
+
+            <div class="row" style="margin-bottom:16px">
+                <label for="imgInput" class="upload-btn">🖼️ Choose image</label>
+                <input type="file" id="imgInput" accept="image/*" hidden>
+            </div>
+
+            <div class="preview-box" id="dropZone2">
+                <img id="previewImage2" class="preview-img" alt="No image">
+            </div>
+
+            <button id="clearImg" class="btn secondary" style="margin-top:12px">Delete image</button>
+        </div>
+
+        <div class="panel">
+            <h1>Result</h1>
+
+            <textarea id="base64output" placeholder="Base64 will appear here..." readonly></textarea>
+
+            <div class="row" style="margin-top:12px; gap:10px; flex-wrap:wrap">
+                <button id="copyBtn" class="btn">Copy Base64</button>
+                <button id="downloadTxt" class="btn secondary">Download .txt</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+   <a href="https://linktr.ee/bowtuckle" target="_blank" id="englishBtn" class="btn secondary">
+    Our System
+    </a>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

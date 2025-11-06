@@ -1,0 +1,362 @@
+ :root {
+    --pink: #ff9ecb;
+    --pink-dark: #ff6cab;
+    --blue: #a7d8ff;
+    --purple: #cbb5ff;
+    --bg: #fff7fb;
+    --text: #444;
+    font-family: "Nunito", "Segoe UI", sans-serif;
+  }
+
+  body {
+    margin: 0;
+    padding: 24px;
+    background: var(--bg);
+  }
+
+
+  h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--pink-dark);
+    margin-bottom: 12px;
+  }
+
+  .wrap {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .panel {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    flex: 1 1 420px;
+    border: 2px solid #ffe2f3;
+    box-shadow: 0 3px 15px rgba(255, 167, 231, .25);
+  }
+
+  label {
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+#base64input {
+  width: 100%;
+  height: 180px;              
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #ffd6ec;
+  background: #fff;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.4;
+  resize: vertical;       
+  overflow-y: auto;        
+  box-sizing: border-box;
+}
+
+  textarea, input[type="text"], select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid #ffd6ec;
+    background: #fff;
+    font-family: monospace;
+    box-sizing: border-box;
+  }
+
+  textarea:focus, input:focus, select:focus {
+    outline: none;
+    border-color: var(--pink);
+    box-shadow: 0 0 0 4px #ffd6ec6a;
+  }
+
+  input[type="file"] {
+    margin-top: 8px;
+  }
+
+  .btn {
+    background: var(--pink);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.25s;
+  }
+
+  .btn:hover {
+    background: var(--pink-dark);
+    transform: translateY(-1px);
+  }
+
+  .btn.secondary {
+    background: #ffffff;
+    color: var(--pink-dark);
+    border: 2px solid var(--pink);
+  }
+
+  .btn.secondary:hover {
+    background: var(--pink);
+    color: white;
+  }
+
+  .dropzone {
+    border-radius: 12px;
+    border: 2px dashed #ffaad6;
+    background: #fff3fa;
+    padding: 18px;
+    text-align: center;
+    margin-top: 12px;
+    color: #d45fa5;
+    font-size: 14px;
+  }
+
+  .preview {
+    text-align: center;
+    border: 2px dashed #666;
+    padding: 12px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+  }
+
+  img.preview-img {
+    max-width: 100%;
+    border-radius: 16px;
+    border: 2px solid #ffd6ec;
+    margin-top: 10px;
+  }
+
+  #controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .meta {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+    margin-top: 4px;
+  }
+
+  #fileInput {
+  display: inline-block;
+  background: #ff9acb;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+#fileInput:hover {
+  background: #ff7fb8;
+  transform: translateY(-1px);
+}
+
+#fileInput:active {
+  background: #ff65aa;
+  transform: translateY(0);
+}
+
+.upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #ffb7e1, #ff7fcf);
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(255, 140, 193, 0.4);
+  transition: 0.2s ease;
+  user-select: none;
+}
+
+.upload-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 140, 193, 0.55);
+}
+
+.upload-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(255, 140, 193, 0.4);
+}
+
+#fileInput {
+  display: none !important;
+}
+
+.preview-box img {
+  max-width: 100%;
+  max-height: 220px;
+  border-radius: 8px;
+}
+
+/* Drag */
+#dropZone.dragover {
+  background: #e5d4f7;
+  border-color: #8d60b8;
+}
+
+/* Clear button */
+.clear-btn {
+  margin-top: 12px;
+  padding: 12px;
+  background: #8e59b8;
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Textarea & copy/download buttons */
+#base64output {
+  width: 100%;
+  height: 220px;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #c8a4df;
+  background: #fbf8ff;
+  resize: vertical;
+  color: #4b3567;
+  font-size: 14px;
+}
+
+
+/* Đồng bộ panel bên trái như phần base64 → image */
+.preview-box {
+  border-radius: 12px;
+  border: 2px dashed #ffaad6;
+  background: #fff3fa;
+  padding: 18px;
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-box img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 12px;
+  display: block;
+}
+
+
+#base64output {
+  width: 100%;
+  height: 260px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #ffd6ec;
+  background: #fff;
+  font-family: monospace;
+  font-size: 14px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+#base64output:focus {
+  outline: none;
+  border-color: var(--pink);
+  box-shadow: 0 0 0 4px #ffd6ec6a;
+}
+
+.wrap-bottom {
+    margin-top: 50px;
+}
+
+#dropZone2 {
+  border: 2px dashed #666;
+  padding: 12px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#dropZone2.dragover {
+  border-color: #00d5ff;
+}
+.preview-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+body.dark-theme {
+  --bg: #2b1f3b; /* nền tím pastel đậm */
+  --text: #eee;
+  --pink: #d29bff;
+  --pink-dark: #a463d9;
+  --blue: #8ac4ff;
+  --purple: #cbb5ff;
+}
+
+body.dark-theme .panel {
+  background: #3a2a4d;
+  border-color: #5b3a7a;
+  box-shadow: 0 3px 15px rgba(200, 150, 255, 0.25);
+  color: var(--text);
+}
+
+body.dark-theme textarea,
+body.dark-theme input,
+body.dark-theme select {
+  background: #4b365e;
+  color: #eee;
+  border-color: #6a4b85;
+}
+
+body.dark-theme .dropzone,
+body.dark-theme .preview-box {
+  background: #452f5b;
+  border-color: #5e3f84;
+  color: #d0baff;
+}
+
+body.dark-theme .btn {
+  background: var(--pink);
+  color: white;
+}
+
+body.dark-theme .btn.secondary {
+  background: #3a2a4d;
+  color: var(--pink);
+  border-color: var(--pink);
+}
+
+body.dark-theme .btn.secondary:hover {
+  background: var(--pink);
+  color: white;
+}
+
+#englishBtn {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  z-index: 999;
+}

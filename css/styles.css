@@ -61,7 +61,7 @@
   box-sizing: border-box;
 }
 
-body.dark-theme textarea #base64input {
+body.dark-theme textarea#base64input {
   color: #000
 }
 
@@ -379,4 +379,5 @@ body.dark-theme .btn.secondary:hover {
     opacity: 0;
   }
 }
+
 

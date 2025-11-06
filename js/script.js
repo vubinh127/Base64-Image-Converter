@@ -51,10 +51,10 @@ $(function () {
   function buildImageFromBase64(text) {
     clearError();
     const norm = normalizeInput(text);
-    if (!norm || !norm.b64) { showError('Không tìm thấy dữ liệu base64'); return null; }
+    if (!norm || !norm.b64) { showError('Base64 data not found'); return null; }
 
     const u8 = base64ToUint8Array(norm.b64);
-    if (!u8) { showError('Dữ liệu base64 không hợp lệ hoặc quá lớn để xử lý'); return null; }
+    if (!u8) { showError('Base64 data is invalid or too large to process'); return null; }
 
     let mime = $forceMime.val() || norm.mime || detectMime(u8) || 'image/png';
     const blob = new Blob([u8], { type: mime });
@@ -103,7 +103,7 @@ $(function () {
   $convertBtn.on('click', function(){
     clearError();
     const text = $ta.val().trim();
-    if (!text) { showError('Vui lòng paste base64 hoặc chọn file .txt chứa base64'); return; }
+    if (!text) { showError('Please paste base64 or select a .txt file containing base64'); return; }
     const result = buildImageFromBase64(text);
     if (result) showPreview(result);
   });
@@ -125,12 +125,12 @@ $(function () {
     const reader = new FileReader();
     reader.onload = e => {
       const text = (e.target.result || '').trim();
-      if (!text) { showError('File rỗng hoặc không chứa base64'); return; }
+      if (!text) { showError('File is empty or does not contain base64'); return; }
       $ta.val(text);
       const result = buildImageFromBase64(text);
       if (result) showPreview(result);
     };
-    reader.onerror = ()=> showError('Không thể đọc file');
+    reader.onerror = ()=> showError('Cannot read file');
     reader.readAsText(f);
   });
 
@@ -239,4 +239,5 @@ $(document).ready(function () {
     }
   });
 });
+
 

@@ -380,4 +380,11 @@ body.dark-theme .btn.secondary:hover {
   }
 }
 
+.ads-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px;
+}
+
 
